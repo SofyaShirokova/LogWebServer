@@ -65,6 +65,7 @@ public class TimestampGroupProcessor {
   }
 
   private boolean isFailed(LogEntry entry) {
-    return entry.getHttpStatus() >= 500 || entry.getResponseTime() > config.getMaxResponseTimeMs();
+    return (entry.getHttpStatus() >= 500 && entry.getHttpStatus() < 600)
+        || entry.getResponseTime() > config.getMaxResponseTimeMs();
   }
 }

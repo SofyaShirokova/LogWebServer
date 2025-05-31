@@ -31,6 +31,7 @@ class LogEntryParserTest {
   void throwsOnMalformedLine() {
     String line =
         "192.168.32.181 - - [14/06/201:16:47:02 +1000] \"PUT /rest/v1.4/documents?zone=default&_rid=6076537c HTTP/1.1\" 200 2 44.510983 \"-\" \"@list-item-updater\" prio:0";
+
     assertThrows(IllegalArgumentException.class, () -> LogEntryParser.parse(line));
   }
 }

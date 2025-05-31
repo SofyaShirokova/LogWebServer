@@ -23,11 +23,11 @@ public class LogAnalyzer {
       throw new FileNotFoundException("Файл не найден или не указан: " + filePath);
     }
     try (FileReader reader = new FileReader(filePath)) {
-      analyze(reader);
+      startAnalysis(reader);
     }
   }
 
-  public void analyze(Reader reader) throws IOException {
+  private void startAnalysis(Reader reader) throws IOException {
     TimestampGroupProcessor processor = new TimestampGroupProcessor(config, reporter);
 
     try (BufferedReader br = new BufferedReader(reader)) {

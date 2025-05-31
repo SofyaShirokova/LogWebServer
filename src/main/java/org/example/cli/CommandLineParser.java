@@ -39,10 +39,10 @@ public class CommandLineParser {
 
   private void printHelpAndExit() {
     System.out.println(
-        "Использование: java -jar app.jar -u <доступность> -t <макс_время_ответа> <путь>\n"
+        "Использование: java -jar target/LogWebServer-1.0.jar -u <доступность> -t <макс_время_ответа> <путь>\n"
             + "  -u <значение>   Минимальная доступность\n"
             + "  -t <значение>   Максимальное время ответа в мс\n"
             + "  <путь>          Путь к лог файлу\n");
-    System.exit(0);
+    throw new IllegalArgumentException("Неверное количество аргументов. ");
   }
 }

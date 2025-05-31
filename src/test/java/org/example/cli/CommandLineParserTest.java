@@ -15,6 +15,7 @@ class CommandLineParserTest {
 
     assertNotNull(result);
     LogAnalyzerConfig cfg = result.getConfig();
+
     assertEquals(99.5, cfg.getMinAvailabilityPercent());
     assertEquals(200, cfg.getMaxResponseTimeMs());
     assertEquals("log.txt", result.getFilePath());
@@ -41,6 +42,6 @@ class CommandLineParserTest {
     CommandLineParser parser = new CommandLineParser();
 
     String[] args = {"-u", "98.7", "-t", "200"};
-    assertThrows(Exception.class, () -> parser.parse(args));
+    assertThrows(IllegalArgumentException.class, () -> parser.parse(args));
   }
 }
